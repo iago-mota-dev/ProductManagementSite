@@ -1,0 +1,59 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "idsupplier": 1,
+      "name": "Product 1",
+      "value": 10,
+      "status": true,
+      "quantity": 5,
+      "createdat": "2022-01-01T00:00:00.000Z",
+      "updatedat": "2022-01-01T00:00:00.000Z",
+      "deletedat": null
+    },
+    {
+      "id": 2,
+      "idsupplier": 2,
+      "name": "Product 2",
+      "value": 20,
+      "status": true,
+      "quantity": 10,
+      "createdat": "2022-01-01T00:00:00.000Z",
+      "updatedat": "2022-01-01T00:00:00.000Z",
+      "deletedat": null
+    },
+    {
+      "id": 4,
+      "idsupplier": 1,
+      "name": "Product 1",
+      "value": 100,
+      "status": false,
+      "quantity": 15,
+      "createdat": "2022-01-01T00:00:00.000Z",
+      "updatedat": "2022-01-01T00:00:00.000Z",
+      "deletedat": null
+    },
+    {
+      "id": 5,
+      "idsupplier": 1,
+      "name": "Product 35",
+      "value": 1500,
+      "status": true,
+      "quantity": 15,
+      "createdat": "2022-01-01T00:00:00.000Z",
+      "updatedat": "2022-01-01T00:00:00.000Z",
+      "deletedat": null
+    },
+    {
+      "id": 6,
+      "idsupplier": 1,
+      "name": "Product 353",
+      "value": 15003,
+      "status": true,
+      "quantity": 153,
+      "createdat": "2022-01-01T00:00:00.000Z",
+      "updatedat": "2022-01-01T00:00:00.000Z",
+      "deletedat": null
+    }
+  ]
+}
