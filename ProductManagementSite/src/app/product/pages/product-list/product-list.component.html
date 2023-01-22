@@ -1,8 +1,34 @@
-<mat-drawer-container class="example-container">
-    <mat-drawer mode="side" opened>
-        Drawer content
-    </mat-drawer>
-    <mat-drawer-content>
+<mat-sidenav-container class="example-container">
+    <mat-sidenav mode="side" opened class="px-5 py-3">
+        <h2>Filtering Options</h2>
+        <form>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Filter by name</mat-label>
+                    <input matInput>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Filter by value</mat-label>
+                    <input type="number" matInput>
+                </mat-form-field>
+            </div>
+            <div>
+                <div>
+                    <label id="example-radio-group-label">Filter by status</label>
+                </div>
+                <mat-radio-group aria-label="Filter by status">
+                    <mat-radio-button value="true">Active</mat-radio-button>
+                    <mat-radio-button value="false">Inactive</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <button class="w-100" type="button" mat-raised-button color="primary">Filter Products</button>
+
+        </form>
+
+    </mat-sidenav>
+    <mat-sidenav-content class="px-5 py-3">
         Main content
-    </mat-drawer-content>
-  </mat-drawer-container>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -9,6 +9,10 @@ const routes: Routes = [
     redirectTo: 'products'
   },
   {
+    path: 'home',
+    redirectTo: 'products'
+  },
+  {
     path: 'products',
     component: MainComponent,
     loadChildren: () => import('../product/product.module').then(x => x.ProductModule)

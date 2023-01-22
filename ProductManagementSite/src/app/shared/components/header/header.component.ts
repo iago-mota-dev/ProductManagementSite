@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { MatMenuTrigger } from '@angular/material/menu';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
@@ -7,10 +8,10 @@ import { MatMenuTrigger } from '@angular/material/menu';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  menu: any = "item";
-  @ViewChild(MatMenuTrigger) trigger!: MatMenuTrigger;
+  constructor(private router: Router){}
 
-  someMethod() {
-    this.trigger.openMenu();
+  navigateToProducts(){
+    this.router.navigate(['/home']);
   }
+
 }
