@@ -5,6 +5,7 @@ import { ProductRoutingModule } from './product-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { ProductAddComponent } from './pages/product-add/product-add.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UpdateProductComponent } from './pages/update-product/update-product.component';
 
 
 
@@ -12,7 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     ProductListComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    UpdateProductComponent
   ],
   imports: [
     CommonModule,

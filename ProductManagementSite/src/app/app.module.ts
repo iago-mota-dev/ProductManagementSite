@@ -7,6 +7,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { MaterialModule } from './material/material.module';
+import { ProductModule } from './product/product.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { MaterialModule } from './material/material.module';
     LayoutModule,
     MaterialModule,
     SharedModule,
-    CoreModule
+    CoreModule,
+    ProductModule
   ],
   providers: [],
   bootstrap: [AppComponent]

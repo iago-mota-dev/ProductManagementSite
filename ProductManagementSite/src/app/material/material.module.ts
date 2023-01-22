@@ -13,6 +13,9 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 const MaterialComponents = [
   MatSlideToggleModule,
@@ -28,7 +31,9 @@ const MaterialComponents = [
   MatSelectModule,
   MatDialogModule,
   MatSnackBarModule,
-  MatRadioModule
+  MatRadioModule,
+  MatTableModule,
+  MatPaginatorModule
 ]
 
 @NgModule({

@@ -32,28 +32,6 @@
       "createdat": "2022-01-01T00:00:00.000Z",
       "updatedat": "2022-01-01T00:00:00.000Z",
       "deletedat": null
-    },
-    {
-      "id": 5,
-      "idsupplier": 1,
-      "name": "Product 35",
-      "value": 1500,
-      "status": true,
-      "quantity": 15,
-      "createdat": "2022-01-01T00:00:00.000Z",
-      "updatedat": "2022-01-01T00:00:00.000Z",
-      "deletedat": null
-    },
-    {
-      "id": 6,
-      "idsupplier": 1,
-      "name": "Product 353",
-      "value": 15003,
-      "status": true,
-      "quantity": 153,
-      "createdat": "2022-01-01T00:00:00.000Z",
-      "updatedat": "2022-01-01T00:00:00.000Z",
-      "deletedat": null
     }
   ]
 }
