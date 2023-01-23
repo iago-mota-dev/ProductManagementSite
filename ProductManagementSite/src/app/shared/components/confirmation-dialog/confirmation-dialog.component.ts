@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ProductAddComponent } from 'src/app/product/pages/product-add/product-add.component';
 import { SuccessDialogComponent } from '../success-dialog/success-dialog.component';
 
 
@@ -9,9 +10,10 @@ import { SuccessDialogComponent } from '../success-dialog/success-dialog.compone
   styleUrls: ['./confirmation-dialog.component.css']
 })
 export class ConfirmationDialogComponent {
-  constructor(private _snackBar: MatSnackBar) { }
+  constructor(private _snackBar: MatSnackBar, private productAdd: ProductAddComponent) { }
   durationInSeconds: number = 2;
   openSnackBar() {
+    this.productAdd.postProduct();
     this._snackBar.openFromComponent(SuccessDialogComponent, {
       duration: this.durationInSeconds * 1000,
     });

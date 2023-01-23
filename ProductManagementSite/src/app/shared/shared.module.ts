@@ -7,6 +7,7 @@ import { MaterialModule } from '../material/material.module';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 import { SuccessDialogComponent } from './components/success-dialog/success-dialog.component';
 import { FormsModule } from '@angular/forms';
+import { ProductUpdatedDialogComponent } from './components/product-updated-dialog/product-updated-dialog.component';
 
 
 
@@ -17,6 +18,7 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     ConfirmationDialogComponent,
     SuccessDialogComponent,
+    ProductUpdatedDialogComponent,
 
   ],
   imports: [
