@@ -2,17 +2,6 @@
   "products": [
     {
       "idsupplier": 1,
-      "name": "Iphone 1",
-      "value": 500,
-      "status": "true",
-      "quantity": 15,
-      "updatedat": null,
-      "createdat": "2023-01-23T20:16:37.705Z",
-      "deletedat": null,
-      "id": 1
-    },
-    {
-      "idsupplier": 1,
       "name": "Iphone 2",
       "value": 1000,
       "status": "true",

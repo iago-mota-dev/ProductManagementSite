@@ -72,6 +72,7 @@ export class UpdateProductComponent implements OnInit {
     if(this.productUpdated.idsupplier !== null){
       this.product.idsupplier = this.productUpdated.idsupplier;
     }
+    this.product.updatedat = this.productUpdated.updatedat;
   }
   putProduct() {
     this.setProduct();
