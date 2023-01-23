@@ -2,7 +2,7 @@ export class ProductListRequest{
 
     name: string | null;
     value: number | null;
-    status: boolean | null;
+    status: string | null;
 
     constructor(params: Partial<ProductListRequest>) {
         this.name = params.name || null;

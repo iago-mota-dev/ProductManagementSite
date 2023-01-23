@@ -15,14 +15,16 @@ export class ProductService {
 
   GetProducts(params: ProductListRequest): Observable<any> {
     let httpParams = new HttpParams();
-    if (params.name !== null) {
-      httpParams = httpParams.append('name', params.name);
+    if (params.name != null && params.name !== "") {
+      httpParams = httpParams.set('name', params.name);
     }
-    if (params.value !== null) {
-      httpParams = httpParams.append('value', params.value.toString());
+    if (typeof params.value === "number") {
+      httpParams = httpParams.set('value', params.value.toString());
     }
-    if (params.status !== null) {
-      httpParams = httpParams.append('status', params.status.toString());
+    console.log("Status: ");
+    console.log(params.status);
+    if (params.status == 'true' || params.status == 'false') {
+      httpParams = httpParams.set('status', params.status);
     }
     return this.httpService.get("http://localhost:3000/products/", { params: httpParams });
   }
