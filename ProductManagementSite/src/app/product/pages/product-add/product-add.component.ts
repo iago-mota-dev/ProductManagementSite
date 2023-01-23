@@ -1,12 +1,12 @@
 import { Component, Injectable, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ConfirmationDialogComponent } from 'src/app/shared/components/confirmation-dialog/confirmation-dialog.component';
+import { SuccessDialogComponent } from 'src/app/shared/components/success-dialog/success-dialog.component';
 import { ProductInsertRequest } from '../../models/product-insert.request';
 import { ProductService } from '../../services/product.service';
-@Injectable({
-  providedIn: 'root'
-})
+
 
 @Component({
   selector: 'app-product-add',
@@ -16,7 +16,8 @@ import { ProductService } from '../../services/product.service';
 export class ProductAddComponent{
   form: FormGroup;
   product!: ProductInsertRequest;
-  constructor(private dialog: MatDialog, private formBuilder: FormBuilder, private productService: ProductService) { 
+  durationInSeconds: number = 2;
+  constructor(private dialog: MatDialog, private formBuilder: FormBuilder, private productService: ProductService, private _snackBar: MatSnackBar) { 
 
     this.form = formBuilder.group({
       name: ['', [Validators.required]],
@@ -27,19 +28,22 @@ export class ProductAddComponent{
     });
   }
   postProduct(){
-    this.productService.PostProduct(this.product);
+    this.setProduct();
+    this.productService.PostProduct(this.product).subscribe((x: any)=> {
+      console.log(x);
+      this.openSnackBar();
+    });
   }
 
   setProduct(){
    let productRaw = this.form.getRawValue();
     this.product = new ProductInsertRequest(productRaw);
   }
-
-
-  openDialog() {
-    this.dialog.open(ConfirmationDialogComponent,  {
-      width: '20%',
-      data: {productAdd: this}
+  
+ 
+  openSnackBar() {
+    this._snackBar.openFromComponent(SuccessDialogComponent, {
+      duration: this.durationInSeconds * 1000,
     });
   }
 }

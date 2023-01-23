@@ -32,7 +32,7 @@ export class ProductService {
   }
 
   UpdateProduct(product: ProductUpdateRequest): Observable<any> {
-    return this.httpService.put("http://localhost:3000/products/", product);
+    return this.httpService.put("http://localhost:3000/products/" + product.id, product);
   }
 
   PostProduct(product: ProductInsertRequest): Observable<any>{

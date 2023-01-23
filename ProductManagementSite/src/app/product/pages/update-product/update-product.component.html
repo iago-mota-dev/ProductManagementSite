@@ -8,12 +8,12 @@
 
         <mat-form-field appearance="fill" class="example-full-width">
             <mat-label>Product Name</mat-label>
-            <input matInput formControlName="name" placeholder="{{product.name}}">
+            <input matInput formControlName="name" placeholder="{{product.name}}" [value]="product.name">
         </mat-form-field>
 
         <mat-form-field appearance="fill" floatLabel="always" class="example-full-width">
             <mat-label>Product Value</mat-label>
-            <input matInput maxlength="14" type="number" class="example-right-align" placeholder="{{product.value | currency}}" formControlName="value" >
+            <input matInput maxlength="14" type="number" class="example-right-align" placeholder="{{product.value | currency}}" formControlName="value" [value]="product.value">
         </mat-form-field>
 
 
@@ -22,7 +22,7 @@
         <div class="example-container">
             <mat-form-field appearance="fill">
                 <mat-label>Product Status</mat-label>
-                <mat-select formControlName="status" placeholder="{{productStatusTag}}">
+                <mat-select formControlName="status" placeholder="{{productStatusTag}}" [value]="product.status">
                     <mat-option  value="true">Active</mat-option>
                     <mat-option  value="false">Inactive</mat-option>
                 </mat-select>
@@ -30,7 +30,7 @@
 
             <mat-form-field appearance="fill">
                 <mat-label>Product Quantity</mat-label>
-                <input matInput type="number" formControlName="quantity" placeholder="{{product.quantity}}" />
+                <input matInput type="number" formControlName="quantity" placeholder="{{product.quantity}}" [value]="product.quantity"/>
             </mat-form-field>
         </div>
 
@@ -38,11 +38,11 @@
         <h3>Supplier info:</h3>
         <mat-form-field appearance="fill" class="example-full-width">
             <mat-label>Supplier Code</mat-label>
-            <input matInput type="number" formControlName="idsupplier" placeholder="{{product.idsupplier}}" />
+            <input matInput type="number" formControlName="idsupplier" placeholder="{{product.idsupplier}}" [value]="product.idsupplier"/>
         </mat-form-field>
 
 
-            <button type="button" mat-raised-button color="warn" (click)="openDialog()">Update Product</button>
+            <button type="button" mat-raised-button color="warn" (click)="putProduct()">Update Product</button>
 
 
     </form>

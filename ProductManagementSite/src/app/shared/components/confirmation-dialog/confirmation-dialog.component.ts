@@ -10,10 +10,9 @@ import { SuccessDialogComponent } from '../success-dialog/success-dialog.compone
   styleUrls: ['./confirmation-dialog.component.css']
 })
 export class ConfirmationDialogComponent {
-  constructor(private _snackBar: MatSnackBar, private productAdd: ProductAddComponent) { }
+  constructor(private _snackBar: MatSnackBar) { }
   durationInSeconds: number = 2;
   openSnackBar() {
-    this.productAdd.postProduct();
     this._snackBar.openFromComponent(SuccessDialogComponent, {
       duration: this.durationInSeconds * 1000,
     });

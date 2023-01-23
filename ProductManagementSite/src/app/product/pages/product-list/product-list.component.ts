@@ -5,6 +5,8 @@ import { ProductService } from '../../services/product.service';
 import { AfterViewInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SuccessDialogComponent } from 'src/app/shared/components/success-dialog/success-dialog.component';
 
 @Component({
   selector: 'app-product-list',
@@ -19,9 +21,13 @@ export class ProductListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   productListRequest: ProductListRequest = new ProductListRequest({});
   productArrayResponse!: Array<ProductResponse>;
+  durationInSeconds: number = 2;
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private _snackBar: MatSnackBar) { }
   ngOnInit(): void {
+    this.getProducts();
+  }
+  getProducts(){
     this.productService.GetProducts(this.productListRequest).subscribe((x: any) => {
       this.productArrayResponse = x;
       console.log(this.productArrayResponse);
@@ -36,6 +42,13 @@ export class ProductListComponent implements OnInit {
     this.productService.DeleteProduct(id).subscribe((x : any) => {
       console.log("deleted");
       console.log(x);
+      this.openSnackBar();
+      this.getProducts();
+    });
+  }
+  openSnackBar() {
+    this._snackBar.openFromComponent(SuccessDialogComponent, {
+      duration: this.durationInSeconds * 1000,
     });
   }
 

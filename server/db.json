@@ -13,25 +13,25 @@
     },
     {
       "id": 2,
-      "idsupplier": 2,
+      "idsupplier": 1,
       "name": "Product 2",
-      "value": 20,
-      "status": true,
+      "value": 1,
+      "status": "false",
       "quantity": 10,
       "createdat": "2022-01-01T00:00:00.000Z",
       "updatedat": "2022-01-01T00:00:00.000Z",
       "deletedat": null
     },
     {
-      "id": 4,
       "idsupplier": 1,
-      "name": "Product 1",
-      "value": 100,
-      "status": false,
+      "name": "Iphone XS",
+      "value": 1,
+      "status": "false",
       "quantity": 15,
-      "createdat": "2022-01-01T00:00:00.000Z",
-      "updatedat": "2022-01-01T00:00:00.000Z",
-      "deletedat": null
+      "updatedat": null,
+      "createdat": "2023-01-23T09:10:27.215Z",
+      "deletedat": null,
+      "id": 3
     }
   ]
 }

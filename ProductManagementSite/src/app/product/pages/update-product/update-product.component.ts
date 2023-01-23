@@ -1,14 +1,13 @@
 import { Component, Injectable, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { ProductUpdatedDialogComponent } from 'src/app/shared/components/product-updated-dialog/product-updated-dialog.component';
+import { SuccessDialogComponent } from 'src/app/shared/components/success-dialog/success-dialog.component';
 import { ProductUpdateRequest } from '../../models/product-update.request';
 import { ProductResponse } from '../../models/product.response';
 import { ProductService } from '../../services/product.service';
-@Injectable({
-  providedIn: 'root'
-})
 
 @Component({
   selector: 'app-update-product',
@@ -21,7 +20,8 @@ export class UpdateProductComponent implements OnInit {
   product!: ProductResponse;
   productUpdated!: ProductUpdateRequest;
   productStatusTag!: string;
-  constructor(private dialog: MatDialog, private formBuilder: FormBuilder, private productService: ProductService, route: ActivatedRoute) {
+  durationInSeconds: number = 2;
+  constructor(private dialog: MatDialog, private formBuilder: FormBuilder, private productService: ProductService, private _snackBar: MatSnackBar, route: ActivatedRoute) {
     this.id = route.snapshot.params['id'];
     this.form = formBuilder.group({
       name: ['', []],
@@ -38,12 +38,12 @@ export class UpdateProductComponent implements OnInit {
     })
   }
 
-  openDialog() {
-    this.dialog.open(ProductUpdatedDialogComponent,  {
-      width: '20%',
-      data: {productUpdate: this}
+  openSnackBar() {
+    this._snackBar.openFromComponent(SuccessDialogComponent, {
+      duration: this.durationInSeconds * 1000,
     });
   }
+
   setStatus(status: boolean) {
     if (status) {
       this.productStatusTag = "Active";
@@ -53,12 +53,31 @@ export class UpdateProductComponent implements OnInit {
     }
   };
 
-  setProduct(){
+  setProduct() {
     let productRaw = this.form.getRawValue();
     productRaw.id = this.id;
     this.productUpdated = new ProductUpdateRequest(productRaw);
+    if(this.productUpdated.name !== null){
+      this.product.name = this.productUpdated.name;
+    }
+    if(this.productUpdated.value !== null){
+      this.product.value = this.productUpdated.value;
+    }
+    if(this.productUpdated.quantity !== null){
+      this.product.value = this.productUpdated.quantity;
+    }
+    if(this.productUpdated.status !== null){
+      this.product.status = this.productUpdated.status;
+    }
+    if(this.productUpdated.idsupplier !== null){
+      this.product.idsupplier = this.productUpdated.idsupplier;
+    }
   }
-  putProduct(){
-    this.productService.UpdateProduct(this.productUpdated);
+  putProduct() {
+    this.setProduct();
+    this.productService.UpdateProduct(this.product).subscribe((x: any) => {
+      console.log(x);
+      this.openSnackBar();
+    });
   }
 }
