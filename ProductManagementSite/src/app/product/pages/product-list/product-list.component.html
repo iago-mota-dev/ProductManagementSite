@@ -1,0 +1,122 @@
+<mat-sidenav-container class="example-container">
+    <mat-sidenav mode="side" opened class="px-5 py-3">
+        <h2>Filtering Options</h2>
+        <form [formGroup]="form">
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Filter by name</mat-label>
+                    <input matInput formControlName="name">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Filter by value</mat-label>
+                    <input type="number" matInput formControlName="value">
+                </mat-form-field>
+            </div>
+            <div>
+                <div>
+                    <label id="example-radio-group-label">Filter by status</label>
+                </div>
+                <mat-radio-group aria-label="Filter by status" formControlName="status">
+                  <mat-radio-button value="true">Active</mat-radio-button>
+                  <mat-radio-button value="false">Inactive</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <button class="w-100" type="button" mat-raised-button color="primary" (click)="FilterProducts()">Filter Products</button>
+            <button class="w-100 my-3" type="button" mat-raised-button color="primary" (click)="ClearFilters()">Clear Filters</button>
+
+        </form>
+
+    </mat-sidenav>
+    <mat-sidenav-content class="px-5 py-3">
+       
+
+        <div class="container">
+            <div style="margin-top: 10px;">
+                <div class="mat-elevation-z8">
+                    <table mat-table [dataSource]="dataSource">
+                  
+                      <!-- Position Column -->
+                      <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef> Id </th>
+                        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                      </ng-container>
+                  
+                      <!-- Name Column -->
+                      <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef> Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                      </ng-container>
+                  
+                      <!-- Weight Column -->
+                      <ng-container matColumnDef="value">
+                        <th mat-header-cell *matHeaderCellDef> Value </th>
+                        <td mat-cell *matCellDef="let element"> {{element.value | currency}} </td>
+                      </ng-container>
+                  
+                      <!-- Symbol Column -->
+                      <ng-container matColumnDef="quantity">
+                        <th mat-header-cell *matHeaderCellDef> Quantity </th>
+                        <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="status">
+                        <th mat-header-cell *matHeaderCellDef> Status </th>
+                        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="createdat">
+                        <th mat-header-cell *matHeaderCellDef> Created at </th>
+                        <td mat-cell *matCellDef="let element"> {{element.createdat | date}} </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="updatedat">
+                        <th mat-header-cell *matHeaderCellDef> Updated at </th>
+                        <td mat-cell *matCellDef="let element"> {{element.updatedat | date}} </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="deletedat">
+                        <th mat-header-cell *matHeaderCellDef> Deleted at </th>
+                        <td mat-cell *matCellDef="let element"> {{element.deletedat | date}} </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="idsupplier">
+                        <th mat-header-cell *matHeaderCellDef> Supplier Id </th>
+                        <td mat-cell *matCellDef="let element"> {{element.idsupplier}} </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="menu">
+                        <th mat-header-cell *matHeaderCellDef>Actions</th>
+                        <td mat-cell *matCellDef="let element">
+                          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                            <mat-icon>more_vert</mat-icon>
+                          </button>
+                          <mat-menu #menu="matMenu">
+                            <button mat-menu-item [routerLink]="['/products/update', element.id]">Update</button>
+                            <button mat-menu-item (click)="delete(element.id)">Delete</button>
+                          </mat-menu>
+                        </td>
+                     </ng-container>
+                  
+                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                      
+
+                    </table>
+                  
+                  
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                                   showFirstLastButtons
+                                   aria-label="Select page of periodic elements">
+                    </mat-paginator>
+
+                  </div>
+            </div>
+        </div>
+           
+          
+
+    </mat-sidenav-content>
+</mat-sidenav-container>

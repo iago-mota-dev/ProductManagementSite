@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon>supervisor_account</mat-icon>
+      
+          
+    </button>
+    <span style="cursor: pointer;" (click)="navigateToProducts()">Product Management</span>
+    <span class="example-spacer"></span>
+    <div class="d-flex gap-3">
+        <button mat-raised-button routerLink="/products">List Products</button>
+        <button mat-raised-button color="warn" routerLink="/products/new">New Product</button>
+    </div>
+
+
+</mat-toolbar>
